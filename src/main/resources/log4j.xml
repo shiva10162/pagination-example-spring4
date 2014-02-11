@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE log4j:configuration SYSTEM "log4j.dtd">
+
+<!-- ===================================================================== -->
+<!--                                                                       -->
+<!--  Log4j Configuration                                                  -->
+<!--                                                                       -->
+<!-- ===================================================================== -->
+
+<!-- $Id: log4j.xml 7063 2008-01-08 14:33:21Z jbalunas $ -->
+
+<!--
+   | For more configuration infromation and examples see the Jakarta Log4j
+   | owebsite: http://jakarta.apache.org/log4j
+    # For the general syntax of property based configuration files see the
+    # documenation of org.apache.log4j.PropertyConfigurator.
+    # levels DEBUG < INFO < WARN < ERROR < FATAL
+ -->
+
+<log4j:configuration xmlns:log4j="http://jakarta.apache.org/log4j/" debug="false">
+
+   <appender name="CONSOLE" class="org.apache.log4j.ConsoleAppender">
+      <param name="Target" value="System.out"/>
+
+      <layout class="org.apache.log4j.PatternLayout">
+         <param name="ConversionPattern" value="%d{yyyy-MM-dd HH:mm:ss} %-5p %-20C{1}.%-20M - %m%n"/>
+      </layout>
+   </appender>
+    <appender name="FFILE" class="org.apache.log4j.FileAppender">
+        <param name="File" value="/tmp/pagination.log"/>
+        <layout class="org.apache.log4j.PatternLayout">
+            <param name="ConversionPattern" value="%d{yyyy-MM-dd HH:mm:ss} %-5p %-20C{1}.%-20M - %m%n"/>
+        </layout>
+    </appender>
+    <appender name="RFILE" class="org.apache.log4j.RollingFileAppender">
+        <param name="File" value="/tmp/pagination.log"/>
+        <param name="MaxBackupIndex" value="10"/>
+        <param name="MaxFileSize" value="100MB"/>
+        <layout class="org.apache.log4j.PatternLayout">
+            <param name="ConversionPattern" value="%d{yyyy-MM-dd HH:mm:ss} %-5p %-20C{1}.%-20M - %m%n"/>
+        </layout>
+    </appender>
+    <appender name="DFILE" class="org.apache.log4j.DailyRollingFileAppender">
+        <param name="File" value="/tmp/pagination.log"/>
+        <param name="DatePattern" value="'.'yyyy-MM-dd"/> 
+        <param name="Append" value="true"/>
+        <param name="Encoding" value="UTF-8"/>
+        <layout class="org.apache.log4j.PatternLayout">
+            <param name="ConversionPattern" value="%d{yyyy-MM-dd HH:mm:ss} %-5p %-20C{1}.%-20M - %m%n"/>
+        </layout>
+    </appender>
+
+   <category name="com.github.paginationspring.example"><priority value="DEBUG"/></category>
+
+   <category name="com.github.paginationspring"><priority value="DEBUG"/></category>
+
+   <category name="org.springframework"><priority value="WARN"/></category>
+
+   <root><priority value="WARN"/><appender-ref ref="CONSOLE"/></root>
+
+</log4j:configuration>
