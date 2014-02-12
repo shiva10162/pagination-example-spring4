@@ -8,7 +8,7 @@
     <groupId>com.github.paginationspring</groupId>
     <artifactId>pagination-example-spring4</artifactId>
     <packaging>war</packaging>
-    <version>0.0.1-SNAPSHOT</version>
+    <version>1.0.2-SNAPSHOT</version>
     <name>pagination-example-spring4</name>
 
     <properties>
@@ -48,13 +48,13 @@
         <dependency>
             <groupId>com.github.paginationspring</groupId>
             <artifactId>pagination</artifactId>
-            <version>1.0.0</version>
+            <version>1.0.2</version>
             <scope>${pagination.scope}</scope>
         </dependency>
         <dependency>
             <groupId>com.github.paginationspring</groupId>
             <artifactId>pagination-taglibs</artifactId>
-            <version>1.0.0</version>
+            <version>1.0.2</version>
             <scope>${pagination.scope}</scope>
         </dependency>
         <dependency>
